@@ -51,7 +51,13 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-            <label tabIndex={0} className='btn btn-ghost btn-circle'>
+            {/* search */}
+            <button className="btn btn-ghost btn-circle hidden lg:flex">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </button>
+
+            {/* Cart item */}
+            <label tabIndex={0} className='btn btn-ghost btn-circle mr-3 lg:flex hidden items-center justify-center'>
                     <div className="indicator">
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
@@ -71,7 +77,9 @@ const Navbar = () => {
                       <span className="badge badge-sm indicator-item">8</span>
                     </div>    
             </label>
-          <a className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><BiPhoneCall/> Contact</a>
+
+            {/* btn */}
+          <a className="btn bg-[#21406F] hover:bg-[#1d314f] rounded-full px-6 text-white flex items-center justify-center gap-2"><BiPhoneCall/> Contact</a>
         </div>
       </div>
     </header>
