@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { BiPhoneCall } from "react-icons/bi";
 const Navbar = () => {
-  const [isSticky, setSticky] = useState(false);
 
+  const [isSticky, setSticky] = useState(false);
+  // It will trigger when you scroll the web page vertically
   useEffect( () => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -14,7 +15,7 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.addEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     }
   }, []);
 
@@ -67,7 +68,9 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
+
         <div className="navbar-end">
+
             {/* search */}
             <button className="btn btn-ghost btn-circle hidden lg:flex">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
@@ -98,6 +101,7 @@ const Navbar = () => {
             {/* btn */}
           <a className="btn bg-[#E59632] hover:bg-[#e5a24b] rounded-full px-6 text-white flex items-center justify-center gap-2"><BiPhoneCall/> Contact</a>
         </div>
+        
       </div>
     </header>
   )
