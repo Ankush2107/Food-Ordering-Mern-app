@@ -1,13 +1,8 @@
-import mainDish from "../../assets/Images/category1.jpeg"
-import breakfast from "../../assets/Images/category2.jpeg"
-import dessert from "../../assets/Images/category3.webp"
-import browseAll from "../../assets/Images/category4.webp"
-
 const categoryItems = [
-    {id: 1, title: "Dishes", des: "(99 dishes)", image: mainDish},
-    {id: 2, title: "Breakfast", des: "(15 breakfast)", image: breakfast},
-    {id: 3, title: "Dessert", des: "(46 dessert)", image: dessert},
-    {id: 4, title: "Browse All", des: "(295 Items)", image: browseAll},
+    {id: 1, title: "Dishes", des: "(99 dishes)", image: '/Images/category/category1.jpeg'},
+    {id: 2, title: "Breakfast", des: "(15 breakfast)", image: '/Images/category/category2.jpeg'},
+    {id: 3, title: "Dessert", des: "(46 dessert)", image: '/Images/category/category3.webp'},
+    {id: 4, title: "Browse All", des: "(295 Items)", image: '/Images/category/category4.webp'},
 ];
 
 const Categories = () => {
