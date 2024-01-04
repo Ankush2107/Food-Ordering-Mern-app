@@ -1,6 +1,23 @@
-import logo from '../assets/logo.png'
+import { useEffect, useState } from "react";
 import { BiPhoneCall } from "react-icons/bi";
 const Navbar = () => {
+  const [isSticky, setSticky] = useState(false);
+
+  useEffect( () => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if(offset > 0) 
+        setSticky(true)
+      else
+        setSticky(false)
+    } 
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.addEventListener("scroll", handleScroll);
+    }
+  }, []);
+
   const navItems = (
     <>
           <li>
@@ -30,8 +47,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <header className='max-w-screen-2xl'>
-      <div className="navbar xl:px-24">
+    <header className='max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out'>
+      <div className={`navbar xl:px-24 ${isSticky ? "shadow-md bg-base-100 transition-all duration-300" : " " }`}>
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,7 +59,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a href='/'>
-            <img className='h-[35px]' src={ logo } alt='logo' />
+            <div className='text-[#E59632] h-10 w-10 font-bold'>Logo</div>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -79,7 +96,7 @@ const Navbar = () => {
             </label>
 
             {/* btn */}
-          <a className="btn bg-[#21406F] hover:bg-[#1d314f] rounded-full px-6 text-white flex items-center justify-center gap-2"><BiPhoneCall/> Contact</a>
+          <a className="btn bg-[#E59632] hover:bg-[#e5a24b] rounded-full px-6 text-white flex items-center justify-center gap-2"><BiPhoneCall/> Contact</a>
         </div>
       </div>
     </header>
