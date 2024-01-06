@@ -1,6 +1,6 @@
 const Modal = () => {
   return (
-        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <dialog id="my_modal_5" className="modal modal-middle sm:modal-middle">
             <div className="modal-box">
               <h3 className="font-bold text-lg">Hello!</h3>
               <p className="py-4">Press ESC key or click the button below to close</p>
