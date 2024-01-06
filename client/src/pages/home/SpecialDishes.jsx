@@ -29,7 +29,7 @@ const SpecialDishes = () => {
     const slider = useRef(null);
 
     useEffect(() => {
-        axios.get('/menu.json')
+        fetch('/menu.json')
           .then((response) => {
 
             // fetching items which is having category equals to popular
