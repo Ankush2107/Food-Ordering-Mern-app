@@ -1,7 +1,6 @@
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import axios from 'axios';
 import { useEffect, useRef, useState } from "react";
 import Cards from "../../components/Cards";
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
@@ -29,18 +28,21 @@ const SpecialDishes = () => {
     const slider = useRef(null);
 
     useEffect(() => {
-        fetch('/menu.json')
-          .then((response) => {
-
-            // fetching items which is having category equals to popular
-            const specials = response.data.filter((item) => item.category === 'popular');
-            // console.log(specials);
-            setRecipes(specials);
-          })
-          .catch((error) => {
-            console.error('Error fetching data:', error);
-          });
-      }, []);
+      fetch("/menu.json")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then((data) => {
+          const specials = data.filter((item) => item.category === "popular");
+          setRecipes(specials);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
 
     //  setting from slider
     const settings = {

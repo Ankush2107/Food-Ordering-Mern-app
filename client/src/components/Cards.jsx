@@ -10,7 +10,7 @@ const Cards = ({ item }) => {
     }
   return (
     
-       <div className="card min-w-96 bg-base-100 shadow-xl">
+       <div className="card w-96 bg-base-100 shadow-xl">
           <div className={`rating gap-1 absolute right-2 top-2 p-4 heartStar bg-[#E59632] ${isHeartFillted ? "text-rose-500" : "text-white"} `} onClick={handleHeartClick}>
             <FaHeart className="h-5 w-5 cursor-pointer "/>
           </div>  
