@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import Modal from "./Modal";
+import { AuthContext } from "../contexts/AuthProvider"
+
 const Navbar = () => {
 
   const [isSticky, setSticky] = useState(false);
+  const {user} = useContext(AuthContext);
   // It will trigger when you scroll the web page vertically
   useEffect( () => {
     const handleScroll = () => {

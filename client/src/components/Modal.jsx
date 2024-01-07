@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle, FaInstagram } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Modal = () => {
   const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm();
+  } = useForm();
+
+  const { signUpWithGmail } = useContext(AuthContext);
+
+  // google signin
+  const handleLogin = () => {
+    signUpWithGmail().then((result) => {
+      const user = result.user;
+      alert("Login successful");
+    }).catch((error) => console.log(error));
+  }
 
   const onSubmit = (data) => console.log(data);
   return (
@@ -76,7 +88,7 @@ const Modal = () => {
 
           {/* social sign in */}
           <div className="text-center space-x-3 mb-5">
-            <button className="btn btn-circle hover:bg-[#E59632] hover:text-white">
+            <button className="btn btn-circle hover:bg-[#E59632] hover:text-white" onClick={handleLogin}>
               <FaGoogle />
             </button>
             <button className="btn btn-circle hover:bg-[#E59632] hover:text-white">
