@@ -1,25 +1,25 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle, FaInstagram } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import Modal from "./Modal";
 
-const Modal = () => {
-  const {
+const SignUp = () => {
+    const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-
-  const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => console.log(data)
   return (
-    <dialog id="my_modal_5" className="modal modal-middle sm:modal-middle">
-      <div className="modal-box mt-0">
+    <div className="max-w-md bg-white shadow w-full mx-auto flex items-center justify-center my-20">
+       <div className="modal-box mt-0">
         <div className="modal-action flex flex-col justify-center mt-0">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="card-body"
             method="dialog"
           >
-            <h3 className="font-bold text-lg">Please login</h3>
+            <h3 className="font-bold text-lg">Create new account</h3>
 
             {/* email */}
             <div className="form-control">
@@ -56,22 +56,22 @@ const Modal = () => {
             <div className="form-control mt-6">
               <input
                 type="submit"
-                value="login"
+                value="Signup"
                 className="btn bg-[#E59632] text-white"
               />
             </div>
 
             <p className="text-center my-2">
-              Don&apos;t have an account ?{" "}
-              <Link to="/signup" className="underline text-red ml-1">
-                Sign up
-              </Link>{" "}
+              Have an account ?{" "}
+              <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="underline text-red ml-1">
+                Log in
+              </button>{" "}
             </p>
-            <button 
-                htmlFor="my_modal_5"
-                onClick={()=>document.getElementById('my_modal_5').close()}
+
+            <Link 
+                to="/"
                 className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            >✕</button>
+            >✕</Link>
           </form>
 
           {/* social sign in */}
@@ -88,7 +88,10 @@ const Modal = () => {
           </div>
         </div>
       </div>
-    </dialog>
-  );
-};
-export default Modal;
+      <Modal/>
+    </div>
+    
+  )
+}
+
+export default SignUp
