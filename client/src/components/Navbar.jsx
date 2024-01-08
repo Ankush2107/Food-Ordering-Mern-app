@@ -2,11 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import Modal from "./Modal";
 import { AuthContext } from "../contexts/AuthProvider"
+import Profile from "./Profile";
 
 const Navbar = () => {
 
   const [isSticky, setSticky] = useState(false);
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   // It will trigger when you scroll the web page vertically
   useEffect( () => {
     const handleScroll = () => {
@@ -107,10 +110,11 @@ const Navbar = () => {
                       <span className="badge badge-sm indicator-item">8</span>
                     </div>    
             </label>
-
             {/* login btn */}
-          <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn bg-[#E59632] hover:bg-[#e5a24b] rounded-full px-6 text-white flex items-center justify-center gap-2"><FaRegUser/> Login</button>
-          <Modal/>
+            {
+              user ? <Profile user={user} /> : <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn bg-[#E59632] hover:bg-[#e5a24b] rounded-full px-6 text-white flex items-center justify-center gap-2"><FaRegUser/> Login</button>
+            }
+            <Modal/>
         </div>
       </div>
     </header>
