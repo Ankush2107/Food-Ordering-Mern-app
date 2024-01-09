@@ -1,4 +1,16 @@
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
+
 const Profile = ({ user }) => {
+  const { logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut().then(() => {
+      // Sign-out successful.
+      alert("Logout Successfully");
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   return (
     <div>
       <div className="drawer drawer-end z-50">
@@ -29,7 +41,7 @@ const Profile = ({ user }) => {
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li>
-              <a>Profile</a>
+              <a href="/update-profile">Profile</a>
             </li>
             <li>
               <a>Order</a>
@@ -38,7 +50,7 @@ const Profile = ({ user }) => {
               <a>Setting</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a onClick={handleLogout}>Logout</a>
             </li>
           </ul>
         </div>

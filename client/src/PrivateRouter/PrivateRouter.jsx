@@ -4,7 +4,7 @@ import Loading from "../components/Loading.jsx";
 import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRouter = ({ children }) => {
-    const { user, loading } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
     if(loading) {
@@ -18,6 +18,5 @@ const PrivateRouter = ({ children }) => {
   return (
         <Navigate to="/signup" state={{from: location}} replace></Navigate>
   )
-}
-
-export default PrivateRouter
+};
+export default PrivateRouter;
