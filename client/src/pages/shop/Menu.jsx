@@ -52,19 +52,19 @@ const Menu = () => {
         // logic
         switch(option) {
             case "A-Z": 
-                sortedItems.sort((a, b) => a.name.localCompare(b.name));
-            break;
+                sortedItems.sort((a, b) => a.name.localeCompare(b.name));
+                break;
             case "Z-A": 
-                sortedItems.sort((a, b) => b.name.localCompare(a.name));
-            break; 
+                sortedItems.sort((a, b) => b.name.localeCompare(a.name));
+                break; 
             case "low-to-high": 
                 sortedItems.sort((a, b) => a.price - b.price);
-            break; 
+                break; 
             case "high-to-low": 
                 sortedItems.sort((a, b) => b.price - a.price);
-            break;
+                break;
             default:
-            break;    
+                break;    
         }
         setFilteredItems(sortedItems);
         setCurrentPage(1);
@@ -79,7 +79,6 @@ const Menu = () => {
 
   return (
     <div>
-
         {/* Menu Banner */}
         <div className="section-container bg-gradient-to-r from-[#FAFAFA] from-0%  to-[#FCFCFC] to-100%">
             <div className="py-48 flex flex-col justify-center items-center gap-8">
@@ -125,8 +124,6 @@ const Menu = () => {
                     </select>
                 </div>
             </div>
-
-
 
             {/* product card */}
             <div className="px-10 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
