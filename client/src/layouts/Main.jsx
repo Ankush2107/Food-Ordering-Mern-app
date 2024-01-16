@@ -1,10 +1,12 @@
-import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import '../App.css';
-import Footer from "../components/Footer";
+
 import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthProvider";
+import { Outlet } from "react-router-dom";
+
+import Footer from "../components/Footer";
 import Loading from "../components/Loading";
+import Navbar from "../components/Navbar";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Main = () => {
 

@@ -1,6 +1,7 @@
 // Import necessary modules from 'react' and 'firebase'
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from 'react';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+
 import app from "../firebase/firebase.config";
 
 // Create a context to provide authentication information to components
@@ -12,6 +13,7 @@ const googleProvider = new GoogleAuthProvider();
 
 // Define the AuthProvider component
 const AuthProvider = ({ children }) => {
+  
     // State to keep track of the authenticated user and loading state
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);

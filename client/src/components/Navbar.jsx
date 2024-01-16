@@ -1,8 +1,9 @@
 // Import React hooks and components
 import { useContext, useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
-import Modal from "./Modal";
+
 import { AuthContext } from "../contexts/AuthProvider";
+import Modal from "./Modal";
 import Profile from "./Profile";
 
 const Navbar = () => {

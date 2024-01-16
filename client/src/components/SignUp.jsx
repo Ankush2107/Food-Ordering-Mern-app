@@ -1,9 +1,10 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGithub, FaGoogle, FaInstagram } from "react-icons/fa";
-import { useForm } from "react-hook-form";
-import Modal from "./Modal";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { FaGithub, FaGoogle, FaInstagram } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../contexts/AuthProvider";
+import Modal from "./Modal";
 
 const SignUp = () => {
     const {

@@ -1,7 +1,8 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGithub, FaGoogle, FaInstagram } from "react-icons/fa";
-import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { FaGithub, FaGoogle, FaInstagram } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Modal = () => {
